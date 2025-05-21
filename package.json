@@ -1,5 +1,5 @@
 {
-  "name": "contexto.ai",
+  "name": "context.ai",
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "@libsql/client": "^0.15.7",
-    "elysia": "latest",
     "langchain": "^0.3.26"
   },
   "devDependencies": {
