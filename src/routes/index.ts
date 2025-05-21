@@ -1,3 +1,3 @@
-import Elysia from "elysia";
+import Elysia from 'elysia'
 
-export const routes = new Elysia().get("/", () => "Hello Elysia");
+export const routes = new Elysia().get('/', () => 'Hello Elysia')
