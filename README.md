@@ -1,1 +1,1 @@
-# Context.ai is a CLI tool
+# Context.ai is a CLI tool w commander, inquirer and chalk

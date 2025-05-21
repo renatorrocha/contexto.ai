@@ -3,10 +3,13 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/server.ts"
+    "dev": "bun run --watch src/cli.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.15.7",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "inquirer": "^12.6.1",
     "langchain": "^0.3.26"
   },
   "devDependencies": {
