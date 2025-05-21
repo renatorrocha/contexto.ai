@@ -6,7 +6,9 @@
     "dev": "bun run --watch src/server.ts"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@libsql/client": "^0.15.7",
+    "elysia": "latest",
+    "langchain": "^0.3.26"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
