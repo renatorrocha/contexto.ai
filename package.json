@@ -1,9 +1,14 @@
 {
   "name": "context.ai",
   "version": "1.0.50",
+  "bin": {
+    "contexto": "./dist/cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/cli.ts"
+    "dev": "bun run --watch src/cli.ts",
+    "build": "bun build ./src/cli.ts --outdir ./dist --target node",
+    "prepublishOnly": "bun run build"
   },
   "dependencies": {
     "@libsql/client": "^0.15.7",

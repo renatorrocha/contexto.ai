@@ -1,5 +1,5 @@
-import { splitter } from '@/config/langchain';
+import { splitter } from '@/config/langchain'
 
-export default async function extractChunks(markdownContent: string) {
-  return await splitter.splitText(markdownContent)
+export default async function extractChunks(textContent: string) {
+  return await splitter.splitText(textContent)
 }

@@ -1,9 +1,9 @@
 #!/usr/bin/env bun
 
 import { Command } from 'commander'
-import { lib } from './lib'
 import inquirer from 'inquirer'
 import chalk from 'chalk'
+import generateEmbeddings from '@/lib/generate-embeddings'
 
 const program = new Command()
 
@@ -30,7 +30,7 @@ program
 
     console.log(chalk.blue('Iniciando a geração dos embeddings...'))
 
-    const embeddings = await lib.generateEmbeddings()
+    const embeddings = await generateEmbeddings(currentPath)
 
     if (!embeddings) {
       console.log(chalk.red('Erro ao gerar os embeddings.'))

@@ -1,18 +1,23 @@
 import { turso } from '@/config'
-import { lib } from '.'
-import { program } from 'commander'
+import extractChunks from './extract-chunk'
+import { getFiles, readFile } from './file-system'
+import getEmbeddings from './get-embeddings'
 
-export default async function generateEmbeddings() {
+export default async function generateEmbeddings(path: string) {
   try {
-    const chunks = await lib.extractChunks(await lib.readFile('test.md'))
+    const files = await getFiles(path)
 
-    const embeddings = await lib.getEmbeddings(chunks)
+    for (const file of files) {
+      const content = await readFile(`${path}/${file}`)
+      const chunks = await extractChunks(content)
+      const embeddings = await getEmbeddings(chunks)
 
-    for (const item of embeddings) {
-      await turso.execute(
-        'INSERT INTO content (content, url, embedding) VALUES (?,?,?)',
-        [item.chunk, 'test.md', JSON.stringify(item.embedding)]
-      )
+      for (const item of embeddings) {
+        await turso.execute(
+          'INSERT INTO content (content, url, embedding) VALUES (?,?,?)',
+          [item.chunk, file, JSON.stringify(item.embedding)]
+        )
+      }
     }
 
     return true
